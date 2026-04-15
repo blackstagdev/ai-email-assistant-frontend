@@ -18,7 +18,6 @@ const PLATFORMS = [
 
 export default function Integrations() {
   const [integrations, setIntegrations] = useState<any[]>([]);
-  const [setLoading] = useState(true);
 
   useEffect(() => {
     fetchIntegrations();
@@ -27,11 +26,9 @@ export default function Integrations() {
   const fetchIntegrations = async () => {
     try {
       const response = await integrationsAPI.list();
-      setIntegrations(response.data.integrations);
+      setIntegrations(response.data.integrations || []);
     } catch (err) {
       console.error(err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -75,7 +72,7 @@ export default function Integrations() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {PLATFORMS.map((platform) => {
           const integration = integrations.find((i) => i.platform === platform.id);
-          const isConnected = integration?.isConnected || false;
+          const isConnected = integration?.is_connected === true;
 
           return (
             <div key={platform.id} className="card">
@@ -91,9 +88,9 @@ export default function Integrations() {
                 )}
               </div>
 
-              {isConnected && integration?.lastSyncAt && (
+              {isConnected && integration?.last_sync_at && (
                 <p className="text-xs text-gray-500 mb-3">
-                  Last synced: {new Date(integration.lastSyncAt).toLocaleDateString()}
+                  Last synced: {new Date(integration.last_sync_at).toLocaleDateString()}
                 </p>
               )}
 
