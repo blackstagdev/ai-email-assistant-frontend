@@ -4,7 +4,7 @@ import {
   LayoutDashboard,
   Users,
   Mail,
-  Settings,
+  // Settings,
   MessageSquare,
   LogOut,
   Plug,

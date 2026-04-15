@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { contactsAPI } from '../lib/api';
-import { Search, Plus, Mail, Phone, Building2 } from 'lucide-react';
+import { Search, Plus, Mail, Building2 } from 'lucide-react';
 
 export default function Contacts() {
   const [contacts, setContacts] = useState<any[]>([]);

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { analyticsAPI } from '../lib/api';
 import {
-  TrendingUp,
   Users,
   Mail,
   DollarSign,
   MessageSquare,
-  AlertCircle,
 } from 'lucide-react';
 import {
   LineChart,

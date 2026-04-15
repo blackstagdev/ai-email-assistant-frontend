@@ -18,7 +18,7 @@ const PLATFORMS = [
 
 export default function Integrations() {
   const [integrations, setIntegrations] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [setLoading] = useState(true);
 
   useEffect(() => {
     fetchIntegrations();

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { draftsAPI } from '../lib/api';
-import { Mail, Check, X, RefreshCw, Send } from 'lucide-react';
+import { Mail, Check, X, Send } from 'lucide-react';
 
 export default function Drafts() {
   const [drafts, setDrafts] = useState<any[]>([]);
